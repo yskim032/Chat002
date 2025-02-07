@@ -38,12 +38,12 @@ class SingUpActivity : AppCompatActivity() {
             val email = binding.emailEdit.text.toString().trim()
             val password = binding.passwordEdit.text.toString().trim()
 
-            signUp(email, password)
+            signUp(name, email, password)
         }
 
     }
 
-    private fun signUp(email: String, password: String) {
+    private fun signUp(name: String, email: String, password: String) {
 
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
@@ -53,6 +53,7 @@ class SingUpActivity : AppCompatActivity() {
                     Toast.makeText(this, "회원가입 성공", Toast.LENGTH_SHORT).show()
                     val intent: Intent = Intent(this@SingUpActivity, MainActivity::class.java)
                     startActivity(intent)
+                    addUserToDatabase(name, email, mAuth.currentUser?.uid!!)
 
                 } else {
                     //실패시
@@ -62,8 +63,8 @@ class SingUpActivity : AppCompatActivity() {
             }
     }
 
-    private fun addUserToDatabase(name: String, email: String, uld: String){
-        mDbRef.child("user").child(uld).setValue(User(name, email,uld))
+    private fun addUserToDatabase(name: String, email: String, uId: String){
+        mDbRef.child("user").child(uId).setValue(User(name, email,uId))
     }
 
 }

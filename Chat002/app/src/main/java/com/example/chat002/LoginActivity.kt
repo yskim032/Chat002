@@ -48,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
                     val intent: Intent = Intent(this@LoginActivity, MainActivity::class.java)
                     startActivity(intent)
                     Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
-                    finish()
+                    finish() //액티비티 종료
                 } else{
                     Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
                     Log.d("Login", "Error: ${task.exception}")

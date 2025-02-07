@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 class UserAdapter (private val context: Context, private val userList:ArrayList<User>):
         RecyclerView.Adapter<UserAdapter.UserViewHolder>(){
 
-            //화면설정
+            //화면연결
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserAdapter.UserViewHolder {
         val view: View=LayoutInflater.from(context).inflate(R.layout.user_layout,parent, false)
 
@@ -20,7 +20,7 @@ class UserAdapter (private val context: Context, private val userList:ArrayList<
 
     }
 
-            //데이터 설정
+            //데이터 전달 받고 연결
     override fun onBindViewHolder(holder: UserAdapter.UserViewHolder, position: Int) {
         val currentUser = userList[position]
                 holder.nameText.text = currentUser.name
@@ -29,14 +29,13 @@ class UserAdapter (private val context: Context, private val userList:ArrayList<
                     val intent = Intent(context, ChatActivity::class.java)
 
                     intent.putExtra("name", currentUser.name)
-                    intent.putExtra("uld", currentUser.uld)
+                    intent.putExtra("uId", currentUser.uId)
 
                     context.startActivity(intent)
                 }
     }
 
         //데이터  갯수 가져오기
-
     override fun getItemCount(): Int {
         return userList.size
     }

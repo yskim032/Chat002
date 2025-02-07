@@ -40,7 +40,7 @@ class ChatActivity : AppCompatActivity() {
         binding.chatRecyclerView.adapter = messageAdapter
 
         receiverName = intent.getStringExtra("name").toString()
-        receiverUid= intent.getStringExtra("uld").toString()
+        receiverUid= intent.getStringExtra("uId").toString()
 
         mAuth = FirebaseAuth.getInstance()
         mDbRef = FirebaseDatabase.getInstance().reference
@@ -57,9 +57,10 @@ class ChatActivity : AppCompatActivity() {
             val message = binding.messageEdit.text.toString()
             val messageObject = Message(message, senderUid)
 
-            mDbRef.child("chats").child(senderRoom).child("message").push()
+                //보낸이, 받는이 대화 내용 저장
+            mDbRef.child("chats").child(senderRoom).child("messages").push()
                 .setValue(messageObject).addOnSuccessListener {
-                    mDbRef.child("chats").child(receiverRoom).child("message").push()
+                    mDbRef.child("chats").child(receiverRoom).child("messages").push()
                         .setValue(messageObject)
                 }
             binding.messageEdit.setText("")
