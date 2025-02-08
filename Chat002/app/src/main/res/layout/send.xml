@@ -9,10 +9,16 @@
         android:id="@+id/send_message_text"
         android:layout_alignParentEnd="true"
         android:layout_margin="5dp"
-        android:background="@drawable/btn_background"
+        android:background="@drawable/send_background"
         android:padding="10dp"
         android:text="Sending message"
-        android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:textColor="@color/dark_purple"
+        android:textStyle="bold"
+        android:textSize="20sp" />
+
+<!--    <color name="sender_bg">#FFC3A0</color>-->
+<!--    <color name="sender_text">#FFFFFF</color>-->
+<!--    <color name="receiver_bg">#7AACFF</color>-->
+<!--    <color name="receiver_txt">#000000</color>-->
 
 </RelativeLayout>

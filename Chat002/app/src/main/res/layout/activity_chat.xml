@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dream"
     tools:context=".ChatActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -11,36 +12,42 @@
         android:layout_height="match_parent"
         android:id="@+id/chat_recyclerView"
         android:layout_above="@id/input_layout"
-        android:layout_alignParentTop="true"/>
+        android:background="@drawable/sky_am"
+        android:layout_alignParentTop="true"
+        app:stackFromEnd="true"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/input_layout"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:orientation="horizontal"
-        android:weightSum="100">
+        android:background="@color/dream"
+        android:weightSum="100"
+        android:gravity="center_horizontal">
 
         <EditText
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
             android:id="@+id/message_edit"
-            android:layout_weight="85"
+            android:layout_height="50dp"
+            android:layout_weight="95"
             android:background="@drawable/edit_background"
             android:hint="Input Message"
+            android:textColor="@color/dark_purple"
+            android:textStyle="bold"
             android:paddingStart="10dp" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+        <ImageButton
             android:id="@+id/send_btn"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="15"
-            android:background="@drawable/btn_background"
-            android:text="Send"
-            android:textColor="@color/white" />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="1dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/send_button" />
 
     </LinearLayout>
 
